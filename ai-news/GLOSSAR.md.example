@@ -1,0 +1,35 @@
+# Glossar
+
+Wachsendes Glossar von Fachbegriffen und Abkürzungen, die im `/ai-news`-Digest auftauchen. Wird vom Skill automatisch erweitert, kann aber jederzeit manuell bearbeitet werden.
+
+## Format
+
+Pro Eintrag ein Markdown-Definitionsabschnitt:
+
+```
+### BEGRIFF
+Kurze Definition (1–3 Sätze), auf Deutsch.
+```
+
+Begriffe alphabetisch sortiert. Synonyme/Alternativ-Schreibweisen in Klammern hinter dem Hauptbegriff (z.B. `### KI-VO (KI-Verordnung, EU AI Act)`).
+
+## Pflege
+
+- Skill prüft beim Lauf, welche Begriffe in den Zusammenfassungen vorkommen, aber im Glossar fehlen — und fügt sie automatisch hinzu.
+- Bestehende Einträge werden nicht überschrieben. Wenn du eine Definition verfeinern willst, einfach manuell editieren.
+- Wenn ein Eintrag nicht mehr relevant ist: löschen. Skill respektiert das.
+
+---
+
+## Einträge
+
+<!-- Drei Beispiel-Einträge als Seed. Lösche oder ersetze sie, oder lass den Skill das Glossar wachsen lassen. -->
+
+### DSGVO
+Datenschutz-Grundverordnung. EU-weite Verordnung zum Schutz personenbezogener Daten, in Kraft seit Mai 2018.
+
+### KI-VO (KI-Verordnung, EU AI Act)
+EU-Verordnung 2024/1689 zur Regulierung von KI-Systemen. Risikobasierter Ansatz mit vier Stufen, von verbotenen Praktiken bis minimales Risiko.
+
+### MCP (Model Context Protocol)
+Von Anthropic eingeführtes offenes Protokoll, das KI-Agenten standardisierten Zugriff auf externe Tools, Datenquellen und Systeme ermöglicht.

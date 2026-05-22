@@ -1,0 +1,32 @@
+# Fokus-Themen
+
+Hier definierst du Schlagworte und kurze Beschreibungen, die der `/ai-news`-Skill verwenden soll, um Meldungen höher zu priorisieren und mit einem ★-Fokus-Badge zu markieren.
+
+## Format
+
+Pro Eintrag eine Zeile, beginnend mit `-`, dann ein oder mehrere Schlagworte (komma-getrennt), dann `:` und eine kurze Beschreibung (warum dich das Thema interessiert oder welcher Kontext relevant ist).
+
+Mehrere Schlagworte pro Eintrag erlaubt — sie werden alle als Match gewertet.
+
+## Wie es wirkt
+
+- **Weiche Gewichtung**: Meldungen, die ein Fokus-Thema treffen, rutschen in der Reihenfolge nach oben und bekommen ein „★ Fokus"-Badge. Andere Meldungen bleiben aber im Digest.
+- **Match-Logik**: Treffer im Titel, in der Zusammenfassung oder im „Warum es wichtig ist"-Feld zählen. Groß-/Kleinschreibung ignoriert.
+- **Mehrfach-Match**: Eine Meldung kann mehrere Fokus-Themen treffen — das stärkt die Priorisierung, ändert aber nichts am Badge (es bleibt bei einem ★).
+
+---
+
+## Aktive Fokus-Themen
+
+<!-- Beispiel-Einträge — gerne anpassen, löschen oder ergänzen -->
+
+- KI-Verordnung, EU AI Act, AI Act, KI-VO: EU-Regulierung von KI-Systemen, besonders Hochrisiko-Einstufung und GPAI-Pflichten
+- BNetzA, Bundesnetzagentur, KI-MIG: Deutsche Marktaufsichtsbehörde für KI ab August 2026
+- BSI, BaFin: Sektorale Aufsicht für Cybersecurity und Finanzdienstleistungen
+- Claude, Anthropic: Modelle und Tools von Anthropic, besonders Claude Code und MCP
+- Agenten, Agent SDK, agentic AI: Agenten-Frameworks und Deployment-Patterns
+- MCP, Model Context Protocol: Protokoll für Agent-Tooling und externe Integrationen
+- Alignment, AI Safety: Sicherheits- und Alignment-Forschung
+- Open Source, Open Weights: Offene Modelle und ihre Veröffentlichung
+
+<!-- Eigene Themen unten ergänzen -->
