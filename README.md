@@ -48,6 +48,34 @@ Some skills use user-specific configuration files (e.g. `FOCUS.md` for `ai-news`
 
 On first run, the skill copies the `.example` file to the live filename if missing, so you can start immediately and then customize. The live files are gitignored, so your private content stays out of the repo.
 
+You can simply run the skill in Claude CLI in any directory:
+
+```bash
+claude
+```
+
+Then call the skill:
+
+```bash
+ claude
+╭─── Claude Code v2.1.139 ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting started                                                               │
+│                 Welcome back Andy!                 │ Run /init to create a CLAUDE.md file with instructions for Claude                      │
+│                                                    │ ────────────────────────────────────────────────────────────────────────────────────── │
+│                       ▐▛███▜▌                      │ What's new                                                                             │
+│                      ▝▜█████▛▘                     │ Internal infrastructure improvements (no user-facing changes)                          │
+│                        ▘▘ ▝▝                       │ `/usage` now shows a per-category breakdown of what's driving your limits usage — ski… │
+│       Opus 4.7 (1M context) · Claude Max ·         │ `/diff` detail view can now be scrolled with the keyboard (arrows, `j`/`k`, `PgUp`/`P… │
+│       andy@cleos.de's Organization                 │ /release-notes for more                                                                │
+│      ~/code/_private/claude-skills-aw/ai-news      │                                                                                        │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+❯ ai-news
+
+⏺ Skill(ai-news)
+  ⎿  Successfully loaded skill
+```
+
 ## Updating
 
 Since each skill is a symlink to the repo:
