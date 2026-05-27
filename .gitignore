@@ -1,3 +1,8 @@
 .DS_Store
 ai-news/FOCUS.md
 ai-news/GLOSSAR.md
+portfolio/PORTFOLIO.md
+portfolio/reports/*
+!portfolio/reports/.gitkeep
+portfolio/state/*
+!portfolio/state/.gitkeep

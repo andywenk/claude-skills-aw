@@ -9,6 +9,7 @@ Each skill lives in its own directory with a `SKILL.md` and any supporting files
 | Skill | Trigger | What it does |
 |---|---|---|
 | [`ai-news`](./ai-news/) | `/ai-news` | Curated weekly digest of AI news (research, industry, policy, tools) as an interactive widget with German summaries, focus weighting, and an auto-growing glossary with clickable definitions. |
+| [`portfolio`](./portfolio/) | `/portfolio` | Structural analysis of a personal stock/ETF portfolio. Sub-commands `review` (snapshot vs. last review), `x-ray` (concentration, overlap, exposure), `etf-compare` (side-by-side comparison of 2–4 ETFs). Not investment advice. |
 
 More skills coming. The repo is a mono-repo — each subdirectory is one skill, fully self-contained.
 

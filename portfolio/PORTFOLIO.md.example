@@ -1,0 +1,57 @@
+# Portfolio
+
+Letzter Review: 2026-04-15
+Basis-Währung: EUR
+
+> Diese Datei ist ein **Beispiel-Template**. Bei der ersten Nutzung des `/portfolio`-Skills wird sie nach `PORTFOLIO.md` kopiert (gitignored). Anschließend pflegst du sie selbst — Positionen ergänzen/entfernen, Stück und Kaufpreis aktualisieren, Notizen ändern.
+
+## Target-Allocation (optional)
+
+Wenn definiert, vergleicht `/portfolio review` den Ist-Stand gegen diese Ziel-Verteilung und meldet Drift. Lass den ganzen Block weg, wenn du keine Target-Allocation pflegen willst.
+
+- Aktien-ETFs Industrieländer: 60%
+- Aktien-ETFs Emerging Markets: 15%
+- Einzelaktien: 10%
+- Anleihen-ETFs: 10%
+- Cash: 5%
+
+## Positionen
+
+### ETFs
+
+| ISIN | Name | Stück | Kaufpreis-Ø (EUR) | Kaufdatum-Ø | Kategorie |
+|---|---|---|---|---|---|
+| IE00B4L5Y983 | iShares Core MSCI World UCITS | 245 | 78.42 | 2023-Q2 | Industrieländer |
+| IE00BKM4GZ66 | iShares Core MSCI EM IMI UCITS | 180 | 28.15 | 2024-Q1 | Emerging Markets |
+| IE00BJ0KDQ92 | Xtrackers MSCI World ESG UCITS | 120 | 45.30 | 2024-Q3 | Industrieländer ESG |
+
+### Einzelaktien
+
+| ISIN | Name | Ticker | Stück | Kaufpreis-Ø (EUR) | Kaufdatum-Ø |
+|---|---|---|---|---|---|
+| US0378331005 | Apple | AAPL | 25 | 145.20 | 2023-Q3 |
+
+### Anleihen-ETFs
+
+| ISIN | Name | Stück | Kaufpreis-Ø (EUR) | Kaufdatum-Ø |
+|---|---|---|---|---|
+| IE00B3F81R35 | iShares Core € Corp Bond UCITS | 80 | 128.50 | 2023-Q4 |
+
+### Cash
+
+- Tagesgeld: 8.500 EUR
+- Verrechnungskonto: 1.200 EUR
+
+## Notizen
+
+- Speku-Positionen (max 5% gesamt): keine aktuell
+- Geplante Sparplan-Beträge: 800 EUR/Monat in MSCI World, 200 EUR/Monat in EM IMI
+- Letzter Rebalance: 2026-01
+
+## Format-Hinweise
+
+- **Kaufpreis und Kaufdatum** sind optional. Wenn vorhanden, schätzt der Skill unrealisierte Gewinne/Verluste.
+- **Kaufdatum** kann ein Quartal sein (`2024-Q1`), ein Monat (`2024-03`) oder ein konkretes Datum (`2024-03-15`). Für gestaffelt aufgebaute Positionen reicht das Quartal.
+- **Stück** darf Dezimalstellen haben (z.B. `12.345` für Sparplan-Bruchstücke).
+- **Cash-Sektion**: einfache Liste, ein Eintrag pro Zeile mit Betrag und Währung.
+- **Eigene Sektionen** (z.B. "Krypto", "Edelmetalle") sind erlaubt; der Skill ignoriert sie aber für jetzt — nur die hier definierten Sektionen werden ausgewertet.
