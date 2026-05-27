@@ -13,12 +13,19 @@ A Claude skill that produces a curated weekly digest of AI news — research, in
 
 | File | Purpose | In Git? |
 |---|---|---|
-| `SKILL.md` | The skill itself. Workflow, rules, output format. | yes |
+| `SKILL.md` | The skill itself for Claude Code in the terminal. References separate FOCUS/GLOSSAR/sources files. | yes |
+| `project-instructions.md` | Single-file version for claude.ai Projects. All content (workflow, sources, focus, glossary) inline. Use this when you can't run Claude Code. | yes |
 | `references/sources.md` | Prioritized source list, grouped by tier. Edit to curate. | yes |
 | `FOCUS.md` | Your focus topics. Matches get sorted to the top with a ★-Fokus badge. | no (gitignored) |
 | `FOCUS.md.example` | Template — copied to `FOCUS.md` on first run if missing. | yes |
 | `GLOSSAR.md` | Auto-growing glossary. Terms in digest summaries become clickable. | no (gitignored) |
 | `GLOSSAR.md.example` | Seed template — copied to `GLOSSAR.md` on first run if missing. | yes |
+
+## Two ways to use this skill
+
+**A) Claude Code (terminal, Mac/Linux/Windows):** symlink this folder into `~/.claude/skills/` (see root README). Then `/ai-news` works in any `claude` session. Output is text-only — no interactive widget.
+
+**B) claude.ai Projects (web, iPad, mobile):** copy the full content of `project-instructions.md` into a new Project's instructions. Then `/ai-news` works in that Project on any device. Full interactive widget with clickable glossary terms.
 
 ## First run
 

@@ -12,6 +12,14 @@ Each skill lives in its own directory with a `SKILL.md` and any supporting files
 
 More skills coming. The repo is a mono-repo — each subdirectory is one skill, fully self-contained.
 
+## Two ways to use these skills
+
+**A) Claude Code (terminal):** install via symlink (see below). Skills behave as proper Claude Code skills with separate config files (focus topics, glossaries, etc.).
+
+**B) claude.ai Projects (browser, iPad, mobile apps):** where a skill has a `project-instructions.md`, copy its contents into a new Project's custom instructions. Skill then works on any device that can open the Project, with full interactive widget rendering.
+
+Method B is useful when you don't have Claude Code available (e.g. on iPad) or when you want the full interactive UI that the terminal can't render.
+
 ## Installation
 
 The recommended setup keeps the Git repo in a normal projects folder and symlinks individual skills into `~/.claude/skills/`. This way Claude finds the skill at the expected path, while you work inside a normal Git repo.
@@ -47,34 +55,6 @@ ls -l ~/.claude/skills/
 Some skills use user-specific configuration files (e.g. `FOCUS.md` for `ai-news`). These files are not in the repo — only their `.example` templates are.
 
 On first run, the skill copies the `.example` file to the live filename if missing, so you can start immediately and then customize. The live files are gitignored, so your private content stays out of the repo.
-
-You can simply run the skill in Claude CLI in any directory:
-
-```bash
-claude
-```
-
-Then call the skill:
-
-```bash
- claude
-╭─── Claude Code v2.1.139 ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│                                                    │ Tips for getting started                                                               │
-│                 Welcome back Andy!                 │ Run /init to create a CLAUDE.md file with instructions for Claude                      │
-│                                                    │ ────────────────────────────────────────────────────────────────────────────────────── │
-│                       ▐▛███▜▌                      │ What's new                                                                             │
-│                      ▝▜█████▛▘                     │ Internal infrastructure improvements (no user-facing changes)                          │
-│                        ▘▘ ▝▝                       │ `/usage` now shows a per-category breakdown of what's driving your limits usage — ski… │
-│       Opus 4.7 (1M context) · Claude Max ·         │ `/diff` detail view can now be scrolled with the keyboard (arrows, `j`/`k`, `PgUp`/`P… │
-│       andy@cleos.de's Organization                 │ /release-notes for more                                                                │
-│      ~/code/_private/claude-skills-aw/ai-news      │                                                                                        │
-╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-
-❯ ai-news
-
-⏺ Skill(ai-news)
-  ⎿  Successfully loaded skill
-```
 
 ## Updating
 
