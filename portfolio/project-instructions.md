@@ -29,7 +29,7 @@ In Claude Code, the skill reads `PORTFOLIO.md` from disk. In a claude.ai Project
 
 - **PORTFOLIO.md**: ask the user to paste it (or attach it) in the first message of any sub-command run other than `help`.
 - **State** (`last-review.json` for `review`): the user pastes the previous review snapshot if they have one. At the end of `review`, output the new snapshot as a code block the user can save somewhere.
-- **Reports**: render as markdown inline in chat. The user can copy/save them.
+- **Reports**: **always write a self-contained HTML file** to `reports/` (see Step 4 below) and give the user a clickable `file://` link to open it. Only a short summary goes inline in chat — the HTML file is the canonical deliverable. (With the Filesystem connector connected in Claude Desktop, reports are written to disk just like in Claude Code; without it, fall back to attaching the HTML file to the response.)
 - **Widget**: render the interactive widget directly in chat (this is the main reason to use a Project on iPad / mobile / web).
 - **Excel export**: if `--xlsx` is passed, produce an `.xlsx` file as an artifact attached to the response.
 
@@ -58,12 +58,33 @@ For any currency conversion, fetch the most recent ECB euro reference rate once 
 
 Follow the sub-command-specific workflow below.
 
-### Step 4 — Compose the markdown report
+### Step 4 — Compose the report as an HTML file
 
-Every sub-command (except `help`) produces a markdown report. Render it inline in chat with a clear `## Report` heading so the user can copy it. Include:
-- Disclaimer in the header
-- FX rate used
-- Sub-command-specific sections (see below)
+Every sub-command (except `help`) produces a **standalone HTML file written to `reports/`** — this is the canonical output for `/portfolio`. In chat, give only a short summary plus the `file://` link; do **not** paste the full report as inline markdown.
+
+Requirements for the HTML file:
+- **Self-contained**: all CSS inline in a `<style>` block; no external scripts, fonts, stylesheets, or CDN/network dependencies. The file must render correctly offline by double-clicking it.
+- Charts/visuals as **inline SVG** only — no external chart libraries.
+- Content matches the sub-command sections (see below): disclaimer in the header, FX rate used, and all sub-command-specific tables/sections.
+- Calm, readable styling: system font stack, generous spacing, subtle table borders, dark text on light background.
+
+Filename (mirrors the markdown convention, with a `.html` extension):
+```
+reports/{YYYY-MM-DD}-review.html
+reports/{YYYY-MM-DD}-x-ray.html
+reports/{YYYY-MM-DD}-etf-compare-{ISIN1}-vs-{ISIN2}[...].html
+```
+If a file with the same name already exists, append `-2`, `-3`, etc.
+
+### Step 4b — Open the report
+
+After writing the HTML file, include a clickable link in the chat response:
+```
+file:///Users/andreaswenk/code/_private/claude-skills-aw/portfolio/reports/{filename}
+```
+Clicking it opens the file in the user's **default browser** — if Firefox is the default, it opens in Firefox.
+
+**Auto-launching Firefox specifically** is only possible when a shell / command-execution tool is available (e.g. Claude Code or Cowork): in that case run `open -a Firefox "{absolute_path}"` (macOS). In the Desktop chat with only the Filesystem connector, app-launching is not available — provide the `file://` link instead, and once note that setting Firefox as the default browser makes the link open there.
 
 ### Step 5 — Render the widget
 
@@ -351,7 +372,9 @@ Notes:
 - [ ] Data source named for any figure where sources could disagree
 - [ ] No invented numbers
 - [ ] No buy/sell recommendation, no market-timing claim, no tax guidance
-- [ ] Markdown report rendered in chat
+- [ ] Self-contained HTML report written to `reports/` (inline CSS + inline SVG, no external dependencies)
+- [ ] `file://` link to the HTML report included in the chat response
+- [ ] Short chat summary only — full report is not pasted inline
 - [ ] Widget rendered (x-ray, etf-compare)
 - [ ] Excel attached (if `--xlsx`)
 - [ ] For `review`: new snapshot output as JSON code block, with note to save it
